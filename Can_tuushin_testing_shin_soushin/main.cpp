@@ -7,8 +7,8 @@ void setup() {
   Serial.begin(9600);  // シリアル通信開始
   while (!Serial);  // シリアル接続待機
 
- const int CAN_TX_PIN = 27;  // 送信ピン（GPIO26）
-const int CAN_RX_PIN = 26;  // 受信ピン（GPIO27）
+ const int CAN_TX_PIN = 27;  // 送信ピン（GPIO27）
+const int CAN_RX_PIN = 26;  // 受信ピン（GPIO26）
 
   Serial.println("CAN Communication");
 
