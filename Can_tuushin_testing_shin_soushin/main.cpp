@@ -7,7 +7,15 @@ void setup() {
   Serial.begin(9600);  // シリアル通信開始
   while (!Serial);  // シリアル接続待機
 
+ const int CAN_TX_PIN = 26;  // 送信ピン（GPIO26）
+const int CAN_RX_PIN = 27;  // 受信ピン（GPIO27）
+
   Serial.println("CAN Communication");
+
+  CAN.setPins(CAN_RX_PIN, CAN_TX_PIN);
+
+  // CANバスの初期化（通信速度500kbps）
+  CAN.begin(500E3);
 
   // CANバスの初期化。500kbpsで動作を設定
   if (!CAN.begin(500E3)) {
@@ -26,7 +34,7 @@ void setup() {
 void loop() {
   //Serial.println("Start");
   // 受信処理を実行
-  //receivePacket();
+  receivePacket();
 
   // 送信処理を実行
   sendPacket();
